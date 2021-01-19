@@ -18,6 +18,7 @@ const (
 	user     = "postgres"
 	password = "password"
 	dbname   = "postgres"
+	dummy    = ""
 )
 
 type event struct {
@@ -29,7 +30,7 @@ type message struct {
 
 // CREATE
 func create(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Println("create")
 	var createEvent event
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &createEvent)
@@ -53,7 +54,9 @@ func create(w http.ResponseWriter, r *http.Request) {
 
 // READ
 func read(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("read")
 	name := "None"
+	zero := 0
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
@@ -61,6 +64,9 @@ func read(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	sqlStatement := `SELECT * FROM data `
+	one := 1
+	div_zero := one / zero
+	fmt.Println(div_zero)
 	err = db.QueryRow(sqlStatement).Scan(&name)
 	if err != nil {
 		panic(err)
@@ -74,6 +80,7 @@ func read(w http.ResponseWriter, r *http.Request) {
 
 // UPDATE
 func update(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("update")
 	var createEvent event
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &createEvent)
@@ -97,6 +104,7 @@ func update(w http.ResponseWriter, r *http.Request) {
 
 // DELETE
 func delete(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("delete")
 	var createEvent event
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &createEvent)
@@ -106,8 +114,8 @@ func delete(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	sqlStatement := `DELETE FROM data WHERE name = ($1)`
-	_, err = db.Exec(sqlStatement, createEvent.Name)
+	sqlStatement := "DELETE FROM data WHERE name = '" + createEvent.Name + "'"
+	_, err = db.Exec(sqlStatement)
 	if err != nil {
 		panic(err)
 	}
