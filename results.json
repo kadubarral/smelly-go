@@ -1,0 +1,109 @@
+{
+	"Golang errors": {},
+	"Issues": [
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "122: \tresponse.Message = \"Success\"\n123: \tjson.NewEncoder(w).Encode(response)\n124: }\n",
+			"line": "123",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "107: \treqBody, err := ioutil.ReadAll(r.Body)\n108: \tjson.Unmarshal(reqBody, \u0026createEvent)\n109: \tpsqlInfo := fmt.Sprintf(\"host=%s port=%d user=%s \"+\"password=%s dbname=%s sslmode=disable\",\n",
+			"line": "108",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "98: \tresponse.Message = \"Success\"\n99: \tjson.NewEncoder(w).Encode(response)\n100: \n",
+			"line": "99",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "83: \treqBody, err := ioutil.ReadAll(r.Body)\n84: \tjson.Unmarshal(reqBody, \u0026createEvent)\n85: \tpsqlInfo := fmt.Sprintf(\"host=%s port=%d user=%s \"+\"password=%s dbname=%s sslmode=disable\",\n",
+			"line": "84",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "74: \tresponse.Message = name\n75: \tjson.NewEncoder(w).Encode(response)\n76: \n",
+			"line": "75",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "51: \tresponse.Message = \"Success\"\n52: \tjson.NewEncoder(w).Encode(response)\n53: }\n",
+			"line": "52",
+			"column": "2"
+		},
+		{
+			"severity": "LOW",
+			"confidence": "HIGH",
+			"cwe": {
+				"ID": "703",
+				"URL": "https://cwe.mitre.org/data/definitions/703.html"
+			},
+			"rule_id": "G104",
+			"details": "Errors unhandled.",
+			"file": "/home/kadubarral/getty/smelly-go/main.go",
+			"code": "35: \treqBody, err := ioutil.ReadAll(r.Body)\n36: \tjson.Unmarshal(reqBody, \u0026createEvent)\n37: \tpsqlInfo := fmt.Sprintf(\"host=%s port=%d user=%s \"+\"password=%s dbname=%s sslmode=disable\",\n",
+			"line": "36",
+			"column": "2"
+		}
+	],
+	"Stats": {
+		"files": 1,
+		"lines": 133,
+		"nosec": 0,
+		"found": 7
+	}
+}
