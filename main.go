@@ -54,9 +54,10 @@ func create(w http.ResponseWriter, r *http.Request) {
 
 // READ
 func read(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("read")
 	name := "None"
 	zero := 0
+	div_zero := 1 / zero
+	fmt.Println(div_zero)
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
@@ -64,9 +65,6 @@ func read(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	sqlStatement := `SELECT * FROM data `
-	one := 1
-	div_zero := one / zero
-	fmt.Println(div_zero)
 	err = db.QueryRow(sqlStatement).Scan(&name)
 	if err != nil {
 		panic(err)
