@@ -8,7 +8,7 @@ COPY go.sum .
 RUN go mod download
 RUN go build -o app .
 
-FROM alpine:latest
+FROM alpine:3.15.4
 
 WORKDIR /usr/src
 COPY --from=builder /usr/build/app .
